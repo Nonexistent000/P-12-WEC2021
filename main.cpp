@@ -9,10 +9,11 @@ bool isCapital(char c);
 void set_up_map(bool isBroken = false, int brokenButton = 0);
 double calculate_time(std::string word);
 double calculate_start_time(char firstLetter);
-static std::map<char, int> keymap;
 char upper_to_lower(char letter);
 void reset_array(std::string arr[], int capacity);
 void print_bestWords(std::string arr[], int capacity, double time);
+
+static std::map<char, int> keymap;
 
 int main()
 {
@@ -127,7 +128,7 @@ double setArrays(std::string arr_words[], std::string best_words[], int capacity
     int count = 0;              // Counter variable for best_words array
     for (int i = 0; i < capacity; i++)
     {
-        int currTime = calculate_time(arr_words[i]); // Calculate the time it takes to type the current word
+        double currTime = calculate_time(arr_words[i]); // Calculate the time it takes to type the current word
         if (currTime < bestTime)
         { // If we have a new best time
             count = 0;
