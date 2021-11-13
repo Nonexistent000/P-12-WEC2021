@@ -26,7 +26,6 @@ int main()
     int brokenButton = 0;         // Broken Button number (If applicable)
 
     read_file(fileName, arr_words, num_of_words, brokenButton);
-
     if (brokenButton != 0)
     {
         set_up_map(true, brokenButton);
@@ -35,6 +34,7 @@ int main()
     {
         set_up_map();
     }
+
     double bestTime = setArrays(arr_words, best_words, num_of_words);
     print_bestWords(best_words, num_of_words, bestTime);
     return 0;
@@ -158,13 +158,7 @@ double calculate_time(std::string word)
         { // If the character is capital it will need an extra 2 seconds
             total_time += 2;
         }
-        if (curr_char == prev_char)
-        {                      // if the current letter of the word is the same as the previous letter of the word
-            total_time += 0.5; // Half a second wait
-            int position = keymap[curr_char] / 10;
-            total_time += 0.25 * (position - 1); // This calculates how many times the button must be pressed to reach the position
-        }
-        else if (keymap[curr_char] % 10 == keymap[prev_char] % 10)
+        if (keymap[curr_char] % 10 == keymap[prev_char] % 10)
         { // if the current letter of the word is on the same keypad as the previous letter of the word
             total_time += 0.5;
             int position = keymap[curr_char] / 10;
