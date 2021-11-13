@@ -16,12 +16,15 @@ void print_bestWords(std::string arr[], int capacity, double time);
 
 int main()
 {
+    std::cout << "What file would you like to test (Please Append .txt)" << std::endl;
+    std::string fileName = "";
+    std::cin >> fileName;
     int num_of_words = 10;        // Max number of words
     std::string arr_words[11]{};  // Array to hold words from text file
     std::string best_words[10]{}; // Array to hold the best words
     int brokenButton = 0;         // Broken Button number (If applicable)
 
-    read_file("Test3.txt", arr_words, num_of_words, brokenButton);
+    read_file(fileName, arr_words, num_of_words, brokenButton);
 
     if (brokenButton != 0)
     {
